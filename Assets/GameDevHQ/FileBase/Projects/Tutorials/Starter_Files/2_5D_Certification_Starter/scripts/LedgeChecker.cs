@@ -5,7 +5,9 @@ using UnityEngine;
 public class LedgeChecker : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 handpos,standpos;
+    private Transform standpos;
+    [SerializeField]
+    private Transform handpos;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -17,13 +19,13 @@ public class LedgeChecker : MonoBehaviour
 
             if (player != null)
             {
-                player.LedgeGrab(handpos,this);
+                player.LedgeGrab(handpos.position,this);
             }
         }
     }
 
     public Vector3 GetStandpos()
     {
-        return standpos;
+        return standpos.position;
     }
 }
